@@ -22,7 +22,7 @@ jobs:
           pip install pandas pyyaml requests pytest
 
       - name: Run tests
-        run: pytest tests/ -v
+        run: python -m pytest tests/ -v
 
       - name: Validate dataset JSON
         run: python -c "import json; json.load(open('dataset/prompts.json')); print('dataset/prompts.json is valid JSON')"
