@@ -8,6 +8,7 @@ venv/
 .pytest_cache/
 node_modules/
 package-lock.json
-*.pdf
+page-*.pdf
+!reports/SentinelAI_Pilot_v1_Report.pdf
 page-*.jpg
 *.log
