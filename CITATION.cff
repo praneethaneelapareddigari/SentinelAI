@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its methodology, please cite it as below."
+title: "SentinelAI: A Cross-Lingual LLM Safety Evaluation Framework"
+version: "1.0.0-pilot"
+date-released: 2026-07-04
+authors:
+  - family-names: "Neelapareddigari"
+    given-names: "Praneetha"
+repository-code: "https://github.com/praneethaneelapareddigari/SentinelAI"
+license: MIT
+abstract: >
+  SentinelAI is a research pipeline for measuring whether open-source LLMs'
+  safety alignment (refusal of unsafe requests, resistance to jailbreaks,
+  factual reliability) holds consistently across languages. Pilot v1 evaluated
+  28 prompts across English, Hindi, Mandarin, Tamil, and Malay against two
+  open-source models, and identified concrete limitations in automated
+  refusal detection for non-English languages, documented in the accompanying
+  technical report and methodology.
+keywords:
+  - ai-safety
+  - llm-evaluation
+  - multilingual-nlp
+  - red-teaming
+  - jailbreak-detection
+  - responsible-ai

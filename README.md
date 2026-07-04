@@ -1,5 +1,7 @@
 # SentinelAI
 
+![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Status](https://img.shields.io/badge/status-Pilot%20v1%20Complete-brightgreen) [![tests](https://github.com/praneethaneelapareddigari/SentinelAI/actions/workflows/tests.yml/badge.svg)](https://github.com/praneethaneelapareddigari/SentinelAI/actions/workflows/tests.yml)
+
 **A cross-lingual LLM safety evaluation framework for South/Southeast Asian languages.**
 
 **Status: Pilot v1 complete.** Full writeup: [`reports/SentinelAI_Pilot_v1_Report.pdf`](reports/SentinelAI_Pilot_v1_Report.pdf)
