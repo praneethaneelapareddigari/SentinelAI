@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        run: |
+          pip install pandas pyyaml requests pytest
+
+      - name: Run tests
+        run: pytest tests/ -v
+
+      - name: Validate dataset JSON
+        run: python -c "import json; json.load(open('dataset/prompts.json')); print('dataset/prompts.json is valid JSON')"
+
+      - name: Validate registry YAML
+        run: python -c "import yaml; print(yaml.safe_load(open('models/registry.yaml')))"

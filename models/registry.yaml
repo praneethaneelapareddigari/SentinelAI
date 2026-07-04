@@ -1,0 +1,15 @@
+# Pilot v1: llama2 and gemma excluded due to reproducible Ollama API-level
+# crashes on this macOS 13 / Apple Silicon setup (see docs/methodology.md
+# Limitations). Only mistral and gemma_small produced valid data.
+models:
+  mistral:
+    backend: ollama
+    tag: "mistral:latest"
+  gemma_small:
+    backend: ollama
+    tag: "gemma:2b"
+
+decoding:
+  temperature: 0.0
+  max_tokens: 512
+  runs_per_item: 3
