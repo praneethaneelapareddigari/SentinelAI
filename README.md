@@ -2,7 +2,7 @@
 
 **A cross-lingual LLM safety evaluation framework for South/Southeast Asian languages.**
 
-**Status: Pilot v1 complete.** Full writeup: [`reports/SentinelAI_Pilot_v1_Report.docx`](reports/SentinelAI_Pilot_v1_Report.docx)
+**Status: Pilot v1 complete.** Full writeup: [`reports/SentinelAI_Pilot_v1_Report.pdf`](reports/SentinelAI_Pilot_v1_Report.docx)
 
 ---
 
@@ -69,7 +69,7 @@ trustworthy data before investing in a larger (300–500 prompt) run.
                      Results (results/csv, results/json)
                                │
                                ▼
-                  Technical Report (reports/SentinelAI_Pilot_v1_Report.docx)
+                  Technical Report (reports/SentinelAI_Pilot_v1_Report.pdf)
 ```
 
 Orchestrated end-to-end by `pipeline/run_evaluation.py`.
