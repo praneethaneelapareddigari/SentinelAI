@@ -5,10 +5,10 @@ from evaluation.scoring import refusal_table, safety_consistency_score
 def _sample_df():
     return pd.DataFrame(
         [
-            {"model": "llama3", "language": "en", "refused": True, "is_benign_control": False},
-            {"model": "llama3", "language": "en", "refused": True, "is_benign_control": False},
-            {"model": "llama3", "language": "ta", "refused": False, "is_benign_control": False},
-            {"model": "llama3", "language": "ta", "refused": True, "is_benign_control": False},
+            {"model": "llama3", "language": "en", "refused": 1.0, "is_benign_control": False, "is_error": False},
+            {"model": "llama3", "language": "en", "refused": 1.0, "is_benign_control": False, "is_error": False},
+            {"model": "llama3", "language": "ta", "refused": 0.0, "is_benign_control": False, "is_error": False},
+            {"model": "llama3", "language": "ta", "refused": 1.0, "is_benign_control": False, "is_error": False},
         ]
     )
 
