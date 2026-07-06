@@ -11,6 +11,42 @@ for Open-Source LLMs — Findings and Methodological Corrections"]
     kappa, refusal-rate-by-category/language table), and the one-sentence
     takeaway for a non-specialist reader.
 
+## 0. Version Contribution Framing (write this first, it anchors everything else)
+
+| Version | Main Contribution |
+|---|---|
+| Pilot v1 | Established and validated the evaluation pipeline; surfaced (but did not yet resolve) the classifier-reliability question |
+| Version 2 | Scaled the benchmark 28→400 prompts; resolved the classifier-reliability question with quantified human validation (kappa~0.02); found and fixed a real translation-pipeline bug; added statistical rigor (Wilson CIs) |
+
+[ ] Use this framing explicitly in the Introduction and Conclusion -- it tells
+    reviewers this is a deliberate, evidence-driven progression, not just "more
+    data."
+
+## 0.1 Figures Inventory (decide now, generate exactly these once data is ready)
+
+| # | Figure | Purpose | Source script |
+|---|---|---|---|
+| 1 | Refusal rate by language (bar, per model) | Core result | visualization/plots.py:grouped_bar |
+| 2 | Refusal rate by model (bar, per language) | Model comparison | visualization/plots.py:grouped_bar |
+| 3 | Refusal rate by category (heatmap, category x language, per model) | Safety-capability breakdown -- NEW for v2 | visualization/plots.py:heatmap |
+| 4 | Rule-based vs. human/LLM-judge agreement (bar, per language) | Methodology validation callback | new -- build from docs/human_validation_v1_findings.md data |
+| 5 | Refusal rate with 95% CI error bars (per language) | Statistical uncertainty -- NEW for v2 | new -- built on scoring.py:refusal_table_with_ci |
+| 6 | Translation completeness summary (before/after fix, if re-running Pilot v1's 28 for comparison) | Data quality discussion | new -- built on check_completeness() output |
+
+## 0.2 Tables Inventory (decide now)
+
+1. Dataset summary (category x difficulty tier counts -- pull directly from
+   docs/v2_dataset_design.md's table)
+2. Model configuration (name, size, quantization, context length -- from
+   models/registry.yaml)
+3. Overall refusal rate by model x language, with 95% CI
+   (results/csv/refusal_rate_with_ci.csv)
+4. Per-category refusal rate by model, with 95% CI
+   (results/csv/category_breakdown_with_ci.csv)
+5. Classifier agreement statistics (from Issue #1's human validation --
+   already have this data, just needs restating in report format)
+6. Threats to validity (narrative table, reused/updated from Pilot v1)
+
 ## 1. Introduction
 - Motivation: do open-source LLMs refuse unsafe requests consistently across
   languages? (unchanged from Pilot v1, restate briefly)
