@@ -1,15 +1,40 @@
-# Pilot v1: llama2 and gemma excluded due to reproducible Ollama API-level
-# crashes on this macOS 13 / Apple Silicon setup (see docs/methodology.md
-# Limitations). Only mistral and gemma_small produced valid data.
+# Pinned exact model versions used in Pilot v1 (captured from `ollama list` on the
+# test machine). Ollama's public library does not offer dated/versioned tags for
+# these models beyond size variants, so "pinning" means locking to the exact local
+# image ID/digest below rather than the floating `:latest` tag, which can silently
+# resolve to a different model on a future `ollama pull`.
+#
+# To re-verify or re-pin on a new machine:
+#   ollama pull mistral:latest && ollama list        # confirm image ID matches below
+#   curl -s http://localhost:11434/api/show -d '{"name":"mistral:latest"}' \
+#     | grep -o '"digest":"[^"]*"'                    # get full 64-char digest
+
 models:
   mistral:
     backend: ollama
-    tag: "mistral:latest"
-  gemma_small:
+    tag: "mistral:latest"          # NOTE: floating tag, see caveat above
+    pinned_image_id: "6577803aa9a0"   # from `ollama list`, captured YYYY-MM-DD (pilot v1 run)
+    pinned_size: "4.4 GB"
+  gemma:
     backend: ollama
     tag: "gemma:2b"
+    pinned_image_id: "b50d6c999e59"
+    pinned_size: "1.7 GB"
+
+  # Excluded from Pilot v1 — see README Caveats & Known Limitations
+  # (Ollama API-level crashes on /api/generate, macOS 13 / Apple Silicon / Ollama v0.10.1)
+  llama2:
+    backend: ollama
+    tag: "llama2:7b"
+    pinned_image_id: "78e26419b446"
+    status: excluded_pilot_v1
+  gemma_9b:
+    backend: ollama
+    tag: "gemma:7b"
+    pinned_image_id: "a72c7f4d0a15"
+    status: excluded_pilot_v1
 
 decoding:
   temperature: 0.0
   max_tokens: 512
-  runs_per_item: 3
+  runs_per_item: 3   # methodology.md §5.3 — sampling-variance check
